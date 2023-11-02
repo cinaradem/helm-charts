@@ -605,7 +605,7 @@ alertmanager:
     ## Image of Alertmanager
     ##
     image:
-      registry: quay.io
+      registry: 10.1.18.57:9090
       repository: prometheus/alertmanager
       tag: v0.26.0
       sha: ""
@@ -815,7 +815,7 @@ alertmanager:
     containers: []
     # containers:
     # - name: oauth-proxy
-    #   image: quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
+    #   image: 10.1.18.57:9090/oauth2-proxy/oauth2-proxy:v7.5.1
     #   args:
     #   - --upstream=http://127.0.0.1:9093
     #   - --http-address=0.0.0.0:8081
@@ -898,7 +898,7 @@ alertmanager:
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
 grafana:
-  enabled: true
+  enabled: false
   namespaceOverride: ""
 
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
@@ -1869,9 +1869,14 @@ kubeStateMetrics:
 ##
 kube-state-metrics:
   namespaceOverride: ""
+  image:
+    registry: 10.1.18.57:9090
   rbac:
     create: true
   releaseLabel: true
+  kubeRBACProxy:
+    image:
+      registry: 10.1.18.57:9090
   prometheus:
     monitor:
       enabled: true
@@ -2061,7 +2066,7 @@ prometheusOperator:
     patch:
       enabled: true
       image:
-        registry: registry.k8s.io
+        registry: 10.1.18.57:9090
         repository: ingress-nginx/kube-webhook-certgen
         tag: v20221220-controller-v1.5.1-58-g787ea74b6
         sha: ""
@@ -2397,7 +2402,7 @@ prometheusOperator:
   ## Prometheus-operator image
   ##
   image:
-    registry: quay.io
+    registry: 10.1.18.57:9090
     repository: prometheus-operator/prometheus-operator
     # if not set appVersion field from Chart.yaml is used
     tag: ""
@@ -2410,7 +2415,7 @@ prometheusOperator:
 
   ## Prometheus image registry to use for prometheuses managed by the operator
   ##
-  # prometheusDefaultBaseImageRegistry: quay.io
+  # prometheusDefaultBaseImageRegistry: 10.1.18.57:9090
 
   ## Alertmanager image to use for alertmanagers managed by the operator
   ##
@@ -2418,13 +2423,13 @@ prometheusOperator:
 
   ## Alertmanager image registry to use for alertmanagers managed by the operator
   ##
-  # alertmanagerDefaultBaseImageRegistry: quay.io
+  # alertmanagerDefaultBaseImageRegistry: 10.1.18.57:9090
 
   ## Prometheus-config-reloader
   ##
   prometheusConfigReloader:
     image:
-      registry: quay.io
+      registry: 10.1.18.57:9090
       repository: prometheus-operator/prometheus-config-reloader
       # if not set appVersion field from Chart.yaml is used
       tag: ""
@@ -2445,7 +2450,7 @@ prometheusOperator:
   ## Thanos side-car image when configured
   ##
   thanosImage:
-    registry: quay.io
+    registry: 10.1.18.57:9090
     repository: thanos/thanos
     tag: v0.32.5
     sha: ""
@@ -2964,7 +2969,7 @@ prometheus:
     ## Image of Prometheus.
     ##
     image:
-      registry: quay.io
+      registry: 10.1.18.57:9090
       repository: prometheus/prometheus
       tag: v2.47.1
       sha: ""
@@ -3469,7 +3474,7 @@ prometheus:
     containers: []
     # containers:
     # - name: oauth-proxy
-    #   image: quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
+    #   image: 10.1.18.57:9090/oauth2-proxy/oauth2-proxy:v7.5.1
     #   args:
     #   - --upstream=http://127.0.0.1:9090
     #   - --http-address=0.0.0.0:8081
@@ -3929,7 +3934,7 @@ thanosRuler:
     ## Image of ThanosRuler
     ##
     image:
-      registry: quay.io
+      registry: 10.1.18.57:9090
       repository: thanos/thanos
       tag: v0.32.5
       sha: ""
