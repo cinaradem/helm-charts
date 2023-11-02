@@ -1953,6 +1953,11 @@ nodeExporter:
 ##
 prometheus-node-exporter:
   namespaceOverride: ""
+  image:
+    registry: 10.1.18.57:9090
+  kubeRBACProxy:
+    image:
+      registry: 10.1.18.57:9090
   podLabels:
     ## Add the 'node-exporter' label to be used by serviceMonitor to match standard common usage in rules and grafana dashboards
     ##
